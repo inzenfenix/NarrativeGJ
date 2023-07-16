@@ -31,7 +31,7 @@ public class BoatSystem : MonoBehaviour
         while (moving)
         {
             Vector2 move = PlayerController._Instance.Movement();
-            rb.AddForce(new Vector3(move.x * m_strength, 0, move.y * m_strength));
+            rb.AddRelativeForce(new Vector3(move.y * m_strength, move.x * m_strength, 0));
             yield return new WaitForSeconds(m_rateTime);
             if (move.magnitude == 0f)
                 moving = false;
